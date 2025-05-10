@@ -1,29 +1,67 @@
 import Lottie from 'lottie-react';
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import registerLottiData from '../../assets/lotti/register.json';
+import AuthContext from '../../context/AuthContex/AuthContext';
 
 const Register = () => {
+
+    const { createUser } = useContext(AuthContext);
+    const [error, setError] = useState("");
+
+    const handleRegister = e =>{
+        e.preventDefault();
+
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+
+        // password validation:
+
+         // ✅ Password validation
+         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{6,}$/;
+         if (!passwordRegex.test(password)) {
+             setError("Password must be at least 6 characters, include uppercase, lowercase, number, and a special character.");
+             return;
+         }
+    
+        createUser(email, password)
+        .then(result => {
+            console.log(result.user);
+            setError(""); // clear error if success
+                form.reset(); // clear form
+        })
+
+        .catch(error => {
+            console.log(error.message);
+            setError(error.message);
+        });
+
+
+
+    };
+
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left">
+                <div className="text-center lg:text-left w-96">
                 
              <Lottie animationData={registerLottiData}></Lottie>
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <h1 className="ml-8 mt-4text-5xl font-bold">Register now!</h1>
-                    <form className="card-body">
+                    <form onSubmit={handleRegister} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="email" className="input input-bordered" required />
+                            <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="password" className="input input-bordered" required />
+                            <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
