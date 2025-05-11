@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
+    const Navbar = () => {
+      
+    }
     const links = <>
     
     <li><a>Item 1</a></li>
@@ -45,8 +48,24 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to="/register">Register</Link>
-    <a className="btn">Sign In</a>
+
+    {
+      user ? <> 
+      
+      <button className="btn">Log Out</button>
+      
+      
+      </> : <>
+      
+      <Link to="/register">Register</Link>
+
+<Link to="/Signin">
+<button className="btn">Sign In</button>
+</Link>
+      
+      </>
+    }
+    
   </div>
 </div>
         </div>
