@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AuthContext from './AuthContext';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import auth from '../../firebase/firebaseinit';
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
@@ -9,7 +10,7 @@ const AuthProvider = ({children}) => {
     const createUser = (email, password) => {
         setLoading(true);
         
-        return createUserWithEmailAndPassword( email, password);
+        return createUserWithEmailAndPassword(auth, email, password);
     }
 
 

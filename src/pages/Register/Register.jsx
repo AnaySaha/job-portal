@@ -6,7 +6,7 @@ import AuthContext from '../../context/AuthContex/AuthContext';
 const Register = () => {
 
     const { createUser } = useContext(AuthContext);
-    const [error, setError] = useState("");
+    
 
     const handleRegister = e =>{
         e.preventDefault();
@@ -16,25 +16,25 @@ const Register = () => {
         const password = form.password.value;
         console.log(email, password);
 
-        // password validation:
+     
 
          // ✅ Password validation
          const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{6,}$/;
          if (!passwordRegex.test(password)) {
-             setError("Password must be at least 6 characters, include uppercase, lowercase, number, and a special character.");
+    
              return;
          }
     
         createUser(email, password)
         .then(result => {
-            console.log(result.user);
-            setError(""); // clear error if success
+            console.log(result.user)
+     
                 form.reset(); // clear form
         })
 
         .catch(error => {
-            console.log(error.message);
-            setError(error.message);
+            console.log(error.message)
+           
         });
 
 
