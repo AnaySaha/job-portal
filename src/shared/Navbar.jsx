@@ -1,16 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import AuthContext from '../context/AuthContex/AuthContext';
+import logo from '../assets/lotti/jobslogo.png'
 const Navbar = () => {
 
-    const Navbar = () => {
-      
+    const { user, signOutUser } = useContext(AuthContext);
+    
+    const handleSignOut = () => {
+      signOutUser()
+      .then(() =>{
+        console.log('successful sign out')
+      })
+
+      .catch(error =>{
+        console.log('failed to sign out. stay here. Dont leave me alone')
+      })
     }
+    
+    
     const links = <>
     
-    <li><a>Item 1</a></li>
+    <li><NavLink to="/">Home</NavLink></li>
+    <li><NavLink to="/">Register</NavLink></li>
+    <li><NavLink to="/">Sign In</NavLink></li>
    
-      <li><a>Item 3</a></li>
+      
     
     </>
     return (
@@ -38,13 +52,17 @@ const Navbar = () => {
         {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <a className="btn btn-ghost text-xl">
+      <img className='w-12' src={logo} alt="" />
+      <h3 className='text-3xl'>Job Portal</h3>
+    </a>
+    
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
 
      {links}
-      <li><a>Item 3</a></li>
+    
     </ul>
   </div>
   <div className="navbar-end">
@@ -52,19 +70,23 @@ const Navbar = () => {
     {
       user ? <> 
       
-      <button className="btn">Log Out</button>
+      <button onClick={handleSignOut} className="btn">Sign Out</button>
       
       
       </> : <>
-      
+
+
       <Link to="/register">Register</Link>
 
 <Link to="/Signin">
 <button className="btn">Sign In</button>
 </Link>
-      
       </>
     }
+      
+    
+      
+
     
   </div>
 </div>
