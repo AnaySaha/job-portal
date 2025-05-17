@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import loginLottieJSON from "../assets/lotti/signIn.json"
 import AuthContext from '../context/AuthContex/AuthContext';
 import { Result } from 'postcss';
+import SocialLogin from '../shared/SocialLogin';
 
 const Signin = () => {
 
@@ -55,6 +56,7 @@ const Signin = () => {
                             <button className="btn btn-primary">LogIn</button>
                         </div>
                     </form>
+                    <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div>
