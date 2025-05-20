@@ -7,6 +7,7 @@ import Home from "./Home";
 import Register from "../pages/Register/Register";
 import Signin from "../pages/Signin";
 import JobDetails from "../pages/JobDetails";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -22,7 +23,7 @@ import JobDetails from "../pages/JobDetails";
 
       {
         path: '/jobs/:id',
-        element: <JobDetails></JobDetails>,
+        element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/jobs/${params.id}`)
       },
 
