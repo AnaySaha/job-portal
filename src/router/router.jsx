@@ -8,6 +8,7 @@ import Register from "../pages/Register/Register";
 import Signin from "../pages/Signin";
 import JobDetails from "../pages/JobDetails";
 import PrivateRoute from "./PrivateRoute";
+import ApplyJob from "../JobApply/ApplyJob";
 
 
 
@@ -30,6 +31,13 @@ import PrivateRoute from "./PrivateRoute";
       {
         path: 'register',
         element: <Register></Register>
+      },
+
+      {
+        path: '/applyJob/:id',
+        element: <PrivateRoute>
+          <ApplyJob></ApplyJob>
+        </PrivateRoute>
       },
 
       {
