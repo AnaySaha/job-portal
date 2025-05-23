@@ -9,6 +9,7 @@ import Signin from "../pages/Signin";
 import JobDetails from "../pages/JobDetails";
 import PrivateRoute from "./PrivateRoute";
 import ApplyJob from "../JobApply/ApplyJob";
+import MyApplications from "../JobApply/MyApplications/MyApplications";
 
 
 
@@ -38,6 +39,12 @@ import ApplyJob from "../JobApply/ApplyJob";
         element: <PrivateRoute>
           <ApplyJob></ApplyJob>
         </PrivateRoute>
+      },
+      {
+        path: '/myApplications',
+        element: <PrivateRoute><MyApplications>
+          
+          </MyApplications></PrivateRoute>
       },
 
       {
