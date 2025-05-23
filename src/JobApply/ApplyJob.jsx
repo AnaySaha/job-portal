@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
+import Swal from 'sweetalert2';
 
 
 const ApplyJob = () => {
@@ -35,6 +36,16 @@ const submitJobApplication = e => {
     })
     .then(res => res.json())
     .then(data => {
+
+      if(data.insertedId){
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
       console.log(data);
     })
 }
@@ -74,6 +85,6 @@ const submitJobApplication = e => {
   </div>
 
     );
-};
+}; 
 
 export default ApplyJob;
