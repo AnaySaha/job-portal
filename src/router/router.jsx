@@ -10,6 +10,7 @@ import JobDetails from "../pages/JobDetails";
 import PrivateRoute from "./PrivateRoute";
 import ApplyJob from "../JobApply/ApplyJob";
 import MyApplications from "../JobApply/MyApplications/MyApplications";
+import AddJob from "../AddJob/AddJob";
 
 
 
@@ -45,6 +46,11 @@ import MyApplications from "../JobApply/MyApplications/MyApplications";
         element: <PrivateRoute><MyApplications>
           
           </MyApplications></PrivateRoute>
+      },
+
+      {
+        path: '/addJob',
+        element: <PrivateRoute> <AddJob></AddJob></PrivateRoute>
       },
 
       {
