@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import ApplyJob from "../JobApply/ApplyJob";
 import MyApplications from "../JobApply/MyApplications/MyApplications";
 import AddJob from "../AddJob/AddJob";
+import MyPostedjob from "../AddJob/MyPostedjob";
 
 
 
@@ -47,6 +48,12 @@ import AddJob from "../AddJob/AddJob";
           
           </MyApplications></PrivateRoute>
       },
+
+      {
+
+        path: '/myPostedJob',
+        element: <PrivateRoute><MyPostedjob></MyPostedjob></PrivateRoute>
+      }
 
       {
         path: '/addJob',
