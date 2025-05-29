@@ -53,7 +53,7 @@ import MyPostedjob from "../AddJob/MyPostedjob";
 
         path: '/myPostedJob',
         element: <PrivateRoute><MyPostedjob></MyPostedjob></PrivateRoute>
-      }
+      },
 
       {
         path: '/addJob',
