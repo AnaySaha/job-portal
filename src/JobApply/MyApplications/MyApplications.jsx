@@ -67,7 +67,7 @@ useEffect(() => {
                   </td>
                   <td>Purple</td>
                   <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
+                    <button className="btn btn-ghost btn-xs">Details</button>
                   </th>
                 </tr>
                )
