@@ -42,7 +42,7 @@ axios.get(`http://localhost:5000/job-applications?email=${user.email}`,
       </tr>
     </thead>
     <tbody>
-      {/* row 1 */}
+      {/* row 1 *******/}
 
         {
             jobs.map(job => 
