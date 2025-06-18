@@ -29,11 +29,11 @@ import ViewApplications from "../pages/ViewApplications/ViewApplications";
       {
         path: '/jobs/:id',
         element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/jobs/${params.id}`)
+        loader: ({ params }) => fetch(`https://job-portal-server-iota-peach.vercel.app/jobs/${params.id}`)
       },
 
       {
-        path: 'register',
+        path: '/register',
         element: <Register></Register>
       },
 
@@ -41,8 +41,11 @@ import ViewApplications from "../pages/ViewApplications/ViewApplications";
         path: '/applyJob/:id',
         element: <PrivateRoute>
           <ApplyJob></ApplyJob>
-        </PrivateRoute>
+        </PrivateRoute>,
+        loader: ({ params }) => fetch(`https://job-portal-server-iota-peach.vercel.app/jobs/${params.job_id}`)
+
       },
+
       {
         path: '/myApplications',
         element: <PrivateRoute><MyApplications>
@@ -59,7 +62,7 @@ import ViewApplications from "../pages/ViewApplications/ViewApplications";
       {
         path: '/viewApplications/:job_id',
         element: <PrivateRoute><ViewApplications></ViewApplications></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/job-applications/jobs/${params.job_id}`)
+        loader: ({ params }) => fetch(`https://job-portal-server-iota-peach.vercel.app/job-applications/jobs/${params.job_id}`)
       },
 
       {
@@ -68,7 +71,7 @@ import ViewApplications from "../pages/ViewApplications/ViewApplications";
       },
 
       {
-        path: 'signin',
+        path: '/signin',
         element: <Signin></Signin>
       }
     ]

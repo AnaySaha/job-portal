@@ -28,7 +28,7 @@ const Signin = () => {
         .then(result => {
             console.log('sign in', result.user.email)
             const user = {email: email}
-            axios.post('http://localhost:5000/jwt', user, {
+            axios.post('https://job-portal-server-iota-peach.vercel.app/jwt', user, {
                 withCredentials: true })
             .then(res => {
                 console.log(res.data);
